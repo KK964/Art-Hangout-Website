@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./scripts/admin/css/login.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../../assets/images/4e323f6c8b0d5403424598993a97c2a3-128x128.png"
+      type="image/x-icon"
+    />
+
+    <title>Art Hangout Register</title>
+
+    <meta property="og:site_name" content="Art Hangout Admin Page" />
+    <meta property="og:url" content="https://arthangout.art/gallery/admin/register.html" />
+    <meta property="og:title" content="Art Hangout Gallery Admin" />
+    <meta property="og:description" content="Admin register page" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#ff3636" />
+  </head>
+  <body>
+    <form action="register.php" method="post">
+      <div class="login-box">
+        <h1>Register</h1>
+
+        <div class="textbox">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <input type="text" placeholder="Adminname" name="radminname" value="" />
+        </div>
+
+        <div class="textbox">
+          <i class="fa fa-lock" aria-hidden="true"></i>
+          <input type="password" placeholder="Password" name="rpassword" value="" />
+        </div>
+
+        <input class="button" type="submit" name="register" value="Register" />
+      </div>
+    </form>
+  </body>
+</html>

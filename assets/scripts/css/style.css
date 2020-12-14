@@ -1,0 +1,180 @@
+/* MISC */
+
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+html,
+body {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+a {
+  color: rgb(103, 114, 212);
+}
+
+.button {
+  background: none;
+  border: 2px solid rgb(103, 114, 212);
+  color: rgb(103, 114, 212);
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+.button:after {
+  content: ' →';
+}
+
+.button:hover {
+  background-color: rgb(103, 114, 212);
+  color: white;
+  cursor: pointer;
+}
+
+/* HEADER */
+
+header {
+  background: black;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.centered-overlay {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+header h1 {
+  font-size: 48px;
+  margin: 8px;
+}
+
+header h2 {
+  font-size: 36px;
+  margin: 8px;
+}
+
+header strong {
+  color: rgb(153, 163, 255);
+}
+
+header canvas,
+header .background {
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+  display: block;
+  height: 100vh;
+  width: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+header .background img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+header.small-header {
+  height: auto;
+  padding: 8px;
+}
+
+header.small-header h1 {
+  font-size: 32px;
+}
+
+header.small-header h2 {
+  font-size: 24px;
+}
+
+/* NAV */
+
+nav {
+  background-color: rgb(103, 114, 212);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 15px 30px;
+}
+
+nav a {
+  display: block;
+  color: white;
+  font-weight: bold;
+  padding: 10px 0px 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+nav a:hover,
+nav a[aria-current='page'] {
+  border-bottom: 2px solid white;
+  margin-bottom: -2px;
+}
+
+/* MAIN */
+
+main {
+  background-color: #f7f7f7;
+  padding: 20px 0;
+}
+
+main h2 {
+  flex: 0 0 100%;
+  text-align: center;
+}
+
+section {
+  padding: 20px 0;
+}
+
+section:nth-child(2n) {
+  background-color: #f0f0f0;
+}
+
+/* FOOTER */
+
+footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+}
