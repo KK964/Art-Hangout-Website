@@ -2,7 +2,7 @@
 if(!isset($_SESSION)) { 
     session_start(); 
 } 
-include_once('connection.php'); 
+include_once('../connection.php'); 
 if(!isset($_SESSION['legitUser']) || $_SESSION['legitUser'] != 'qwerty') {
      echo '<h1>You are not an authorised user</h1>';
      //header("location:index.html");

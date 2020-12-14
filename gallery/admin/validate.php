@@ -1,7 +1,7 @@
 
 <?php 
   session_start();
-  include_once('connection.php'); 
+  include_once('../connection.php'); 
      
   function test_input($data) { 
         
