@@ -1,8 +1,4 @@
 window.onload = function () {
-  //window.onresize();
-
-  //renderHeader();
-
   registerNavigationScoll(); //register smooth scroll listener
 };
 
@@ -11,6 +7,14 @@ const html = document.documentElement;
 const canvas = document.querySelector('header canvas');
 const title = document.getElementById('art-title');
 const context = canvas.getContext('2d');
+var innerWidth = window.innerWidth;
+var innerHeight = window.innerHeight;
+canvas.width = innerWidth + 20;
+canvas.height = innerHeight + 20;
+const width = canvas.width;
+const height = canvas.height;
+const imgWidth = 1920;
+const imgHeight = 1080;
 const frameCount = 14;
 const currentFrame = (index) => `./assets/imgs/spashWelcome/frame-${index}.jpg`;
 const images = [null];
@@ -26,17 +30,31 @@ img.onload = function () {
   context.drawImage(img, 0, 0);
 };
 const updateImage = (index) => {
-  if (index < frameCount) {
-    context.drawImage(images[index], 0, 0);
+  if (index > 0) {
+    const x = (innerWidth - imgWidth) * 0.5;
+    const y = (innerHeight - imgHeight) * 0.5;
+    console.log(x, y);
+    context.drawImage(images[index], x, y);
   }
 };
 window.addEventListener('scroll', () => {
+  getNextFrame();
+});
+
+window.addEventListener('resize', () => {
+  innerWidth = window.innerWidth;
+  innerHeight = window.innerHeight;
+  getNextFrame();
+});
+
+function getNextFrame() {
   const scrollTop = html.scrollTop;
-  const maxScrollTop = html.scrollHeight - window.innerHeight;
+  const maxScrollTop = html.scrollHeight - innerHeight;
   const scrollFraction = scrollTop / maxScrollTop;
   const frameIndex = Math.min(frameCount - 1, Math.ceil(scrollFraction * frameCount));
   requestAnimationFrame(() => updateImage(frameIndex + 1));
-});
+}
+
 preloadImages();
 //end of paint explosion
 
