@@ -81,7 +81,7 @@ header strong {
   color: rgb(153, 163, 255);
 }
 
-header canvas,
+/*header canvas,
 header .background {
   text-align: center;
   padding: 0;
@@ -94,6 +94,14 @@ header .background {
   bottom: 0;
   left: 0;
   right: 0;
+}*/
+header canvas,
+header .background {
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
 }
 
 header .background img {
