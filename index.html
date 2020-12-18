@@ -28,6 +28,13 @@
 
     <!--scripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"
+    ></script>
+
+    <!--le hidden imgs-->
+    <img style="display: none" src="assets/imgs/ArtHangoutSplash.png" />
   </head>
   <body>
     <header>
@@ -61,6 +68,12 @@
       <section id="info" class="info" aria-labelledby="info">
         <h2>About us</h2>
         <!--Basic info-->
+        <article aria-labelledby="basic">
+          <zero-md src="assets/markdown/aboutus.md"></zero-md>
+        </article>
+        <article aria-labelledby="offers">
+          <zero-md src="assets/markdown/offers.md"></zero-md>
+        </article>
         <!--Our Goal-->
       </section>
       <section id="discord" class="discord" aria-labelledby="discord">
