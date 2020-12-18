@@ -177,6 +177,18 @@ section:nth-child(2n) {
   background-color: #f0f0f0;
 }
 
+.info article {
+  box-sizing: border-box;
+  display: table-cell;
+  margin: 40px;
+  padding: 20px;
+  position: relative;
+  width: 375px;
+  height: 500px;
+  vertical-align: bottom;
+  z-index: 1;
+}
+
 /* FOOTER */
 
 footer {
