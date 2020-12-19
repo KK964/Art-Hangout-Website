@@ -81,20 +81,6 @@ header strong {
   color: rgb(153, 163, 255);
 }
 
-/*header canvas,
-header .background {
-  text-align: center;
-  padding: 0;
-  margin: 0 auto;
-  display: block;
-  height: 100vh;
-  width: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}*/
 header canvas,
 header .background {
   position: absolute;
@@ -149,12 +135,14 @@ nav a {
   padding: 10px 0px 5px;
   text-decoration: none;
   text-transform: uppercase;
+  transition: 500ms;
 }
 
 nav a:hover,
 nav a[aria-current='page'] {
   border-bottom: 2px solid white;
   margin-bottom: -2px;
+  transition: 100ms;
 }
 
 /* MAIN */
@@ -177,16 +165,29 @@ section:nth-child(2n) {
   background-color: #f0f0f0;
 }
 
+.info {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .info article {
   box-sizing: border-box;
   display: table-cell;
-  margin: 40px;
+  border: 1px solid rgb(177, 184, 241);
   padding: 20px;
+  margin: 40px;
   position: relative;
   width: 375px;
   height: 500px;
-  vertical-align: bottom;
+  vertical-align: top;
   z-index: 1;
+  transition: 500ms;
+}
+
+.info article:hover {
+  transition: 100ms;
+  border: 1px solid rgb(103, 114, 212);
 }
 
 /* FOOTER */
