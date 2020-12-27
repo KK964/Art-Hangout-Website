@@ -84,7 +84,7 @@
         <h2>Discord</h2>
         <!--Join Button-->
         <!--Discord Embeded-->
-        <div class="widget">
+        <article class="widget">
           <iframe
             src="https://discord.com/widget?id=761417395285131284&theme=dark"
             width="350"
@@ -93,15 +93,50 @@
             frameborder="0"
             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
           ></iframe>
-        </div>
+        </article>
+        <article>
+          <span class="button" onclick="window.location='//discord.gg/SwH5hPkwbV'"
+            >Join Discord</span
+          >
+        </article>
       </section>
-      <section id="gallery" class="gallery" aria-labelledby="gallery">
+      <section id="gallery" class="gallery centered" aria-labelledby="gallery">
         <h2>User Art Gallery</h2>
         <!--Redirect Button-->
+        <article aria-labelledby="gallery-info">
+          <zero-md src="assets/markdown/gallery.md"></zero-md>
+          <span class="button" onclick="window.location='./gallery'">Gallery</span>
+        </article>
         <!--Image of gallery-->
+
+        <article class="GallExample" id="slideshow-gallExamp" data-component="slideshow">
+          <h3 class="centered-top">Examples</h3>
+          <div class="slideshow centered-overlay" role="list">
+            <div class="slide">
+              <img src="assets/imgs/gallery/gallerySingle1.png" />
+            </div>
+            <div class="slide">
+              <img src="assets/imgs/gallery/gallerySingle2.png" />
+            </div>
+            <div class="slide">
+              <img src="assets/imgs/gallery/gallerySingle3.png" />
+            </div>
+            <div class="slide">
+              <img src="assets/imgs/gallery/galleryPage1.png" />
+            </div>
+          </div>
+        </article>
       </section>
     </main>
   </body>
+  <footer>
+    <span>
+      Art Hangout website source code
+      <a href="//github.com/KK964/Art-Hangout-Website">Github</a>
+    </span>
+    <small>KK964#8025</small>
+  </footer>
   <!--Afterload scripts-->
   <script src="assets/scripts/js/imgScroll.js"></script>
+  <script src="assets/scripts/js/slideshow.js"></script>
 </html>

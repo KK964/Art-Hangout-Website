@@ -30,10 +30,9 @@ img.onload = function () {
   context.drawImage(img, 0, 0);
 };
 const updateImage = (index) => {
-  if (index > 0) {
+  if (index > 0 && index < frameCount) {
     const x = (innerWidth - imgWidth) * 0.5;
     const y = (innerHeight - imgHeight) * 0.5;
-    console.log(x, y);
     context.drawImage(images[index], x, y);
   }
 };

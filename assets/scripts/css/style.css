@@ -67,6 +67,30 @@ header {
   right: 0;
 }
 
+.centered-top {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+}
+
+.centered-bottem {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 header h1 {
   font-size: 48px;
   margin: 8px;
@@ -190,6 +214,81 @@ section:nth-child(2n) {
   border: 1px solid rgb(103, 114, 212);
 }
 
+.discord {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.discord article {
+  box-sizing: border-box;
+  display: table-cell;
+  padding: 20px;
+  margin: 40px;
+  position: relative;
+  width: 375px;
+  height: 500px;
+  vertical-align: bottom;
+  z-index: 1;
+  transition: 500ms;
+}
+
+[data-component='slideshow'] .slide {
+  display: none;
+}
+
+[data-component='slideshow'] .slide.active {
+  display: block;
+}
+
+.gallery {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery .button {
+  border-color: black;
+  color: black;
+}
+
+.gallery .button:hover {
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+.gallery article {
+  box-sizing: border-box;
+  display: table-cell;
+  border: 1px solid rgb(177, 184, 241);
+  padding: 20px;
+  margin: 40px;
+  position: relative;
+  width: 375px;
+  height: 500px;
+  vertical-align: top;
+  z-index: 1;
+  transition: 500ms;
+}
+
+.gallery article:hover {
+  transition: 100ms;
+  border: 1px solid rgb(103, 114, 212);
+}
+
+.slideshow > div {
+  position: absolute;
+  max-width: 100%;
+  width: auto;
+  height: 80%;
+  max-height: 100%;
+}
+
+.slideshow > div > img {
+  height: 100%;
+  width: 100%;
+}
 /* FOOTER */
 
 footer {
