@@ -68,11 +68,11 @@ if(!isset($_SESSION['legitUser']) || $_SESSION['legitUser'] != 'qwerty') {
                 $delButton = "<button type='button' data-type='delete' data-url='".$img['imgURL']."'>Delete</button>";
                 if(in_array($ext, $imgExten)) {
                   $importDataImg = "<img id='zoom' src='".$img['imgURL']."' onerror='this.onerror=null;this.src=".'"'. $errorImg .'"'.";' '>";
-                  echo "<div class='imgs'><a target='_blank' href='".$img['imgURL']."'>".$importDataImg."</a><div class=desc>Made by ".$img['username']." | Category = ".$img['catagory']."<br>".$delButton."  </div></div>";
+                  echo "<div class='imgs'><a target='_blank' href='".$img['imgURL']."'>".$importDataImg."</a><div class=desc>Made by ".$img['username']." | Category = ".$img['category']."<br>".$delButton."  </div></div>";
                 } else
                 if(in_array($ext, $videoExten)) {
                   $importDataVid = "<video controls><source src='".$img['imgURL']."' type='video/".$ext."'>Your browser does not support the video tag.</video>";
-                  echo "<div class='imgs'><a target='_blank' href='".$img['imgURL']."'>".$importDataVid."</a><div class=desc>Made by ".$img['username']." | Category = ".$img['catagory']."<br>".$delButton."</div></div>";
+                  echo "<div class='imgs'><a target='_blank' href='".$img['imgURL']."'>".$importDataVid."</a><div class=desc>Made by ".$img['username']." | Category = ".$img['category']."<br>".$delButton."</div></div>";
                 }
               } 
            ?>
