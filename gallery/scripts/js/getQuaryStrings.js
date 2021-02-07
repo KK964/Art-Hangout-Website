@@ -31,7 +31,7 @@ function getQueryString() {
   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xmlhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200 && this.responseText != '') {
-      console.log('response: ' + this.responseText); // echo from php
+      //console.log('response: ' + this.responseText); // echo from php
       if (this.responseText == '0 results') {
         alert('0 Results');
       } else if (this.responseText == 'error') {
@@ -68,9 +68,10 @@ function addImgsToGal(returnedValues) {
   var imagesAndCaptions = returnedValues.split('|');
   var errorImg = 'https://cdn.iconscout.com/icon/free/png-512/data-not-found-1965034-1662569.png';
 
-  for (var i = 0; i <= imagesAndCaptions.length; i++) {
+  for (var i = 0; i < imagesAndCaptions.length; i++) {
     if (imagesAndCaptions[i] != '' && imagesAndCaptions[i] != undefined) {
       var urlAuthor = splitString(imagesAndCaptions[i], ['ID::', 'USER::', 'CAT::']);
+      urlAuthor[0] = urlAuthor[0].replace('\r\n \r\n  ', '');
       var importData,
         extention = getFileType(urlAuthor[0]);
 
@@ -94,7 +95,7 @@ function addImgsToGal(returnedValues) {
     //urlAuthor[2] = username
     //urlAuthor[3] = category
     document.getElementById('loadedP').innerText = getPercentage(i, imagesAndCaptions.length);
-    if (i == imagesAndCaptions.length) {
+    if (i + 1 == imagesAndCaptions.length) {
       stopLoading();
     }
   }
