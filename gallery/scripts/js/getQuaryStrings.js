@@ -72,9 +72,12 @@ function addImgsToGal(returnedValues) {
     var regex = /(\r|\n| )/g;
     imagesAndCaptions[0] = imagesAndCaptions[0].replace(regex, '');
     if (imagesAndCaptions[i] != '' && imagesAndCaptions[i] != undefined) {
-      var urlAuthor = splitString(imagesAndCaptions[i], ['ID::', 'USER::', 'CAT::']);
+      var urlAuthor = splitString(imagesAndCaptions[i], ['ID::', 'USER::', 'CAT::', 'WINNER::']);
       var importData,
         extention = getFileType(urlAuthor[0]);
+      var winner;
+      if (urlAuthor[4] == 0) winner = 'nonwinner';
+      if (urlAuthor[4] == 1) winner = 'winner';
 
       if (imgExten.includes(extention)) {
         importData = `<img id="zoom" src="${urlAuthor[0]}" onerror='this.onerror=null;this.src="${errorImg}";'>`;
@@ -88,7 +91,7 @@ function addImgsToGal(returnedValues) {
         .getElementById('galleryTest')
         .insertAdjacentHTML(
           'afterend',
-          `<div class="gallery"><a target="_blank" href="${urlAuthor[0]}">${importData}</a><div class=desc>Made by ${urlAuthor[2]} | Category = ${urlAuthor[3]}</div></div>`
+          `<div class="gallery ${winner}"><a target="_blank" href="${urlAuthor[0]}">${importData}</a><div class=desc>Made by ${urlAuthor[2]} | Category = ${urlAuthor[3]}</div></div>`
         );
     }
     //urlAuthor[0] = url

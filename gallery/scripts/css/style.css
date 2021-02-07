@@ -1,10 +1,17 @@
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
-  background-color: azure;
   float: left;
   width: 160px;
   height: auto;
+}
+
+div.gallery.nonwinner {
+  background-color: azure;
+}
+
+div.gallery.winner {
+  background-color: #ffd752;
 }
 
 div.gallery:hover {

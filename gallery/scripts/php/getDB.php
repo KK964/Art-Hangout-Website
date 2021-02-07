@@ -29,7 +29,7 @@
     if (sizeof($result) > 0) {
         foreach($result as $row) {
             if(!($dataSplit[3] == 'false' && ($row["category"] == 'nsfw-art' || $row["category"] == 'gore-art' || $row["category"] == 'gross-art' || $row["category"] == '18-plus'))) {
-            echo $row["imgURL"] . "ID::" . $row["userID"] . "USER::" . $row["username"] . "CAT::" . $row["category"] . "|";
+            echo $row["imgURL"] . "ID::" . $row["userID"] . "USER::" . $row["username"] . "CAT::" . $row["category"] . "WINNER::" . $row["winner"] . "|";
             }
         }
         } else {
