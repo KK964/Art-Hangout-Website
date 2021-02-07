@@ -69,9 +69,10 @@ function addImgsToGal(returnedValues) {
   var errorImg = 'https://cdn.iconscout.com/icon/free/png-512/data-not-found-1965034-1662569.png';
 
   for (var i = 0; i < imagesAndCaptions.length; i++) {
+    var regex = /(\r|\n| )/g;
+    imagesAndCaptions[0] = imagesAndCaptions[0].replace(regex, '');
     if (imagesAndCaptions[i] != '' && imagesAndCaptions[i] != undefined) {
       var urlAuthor = splitString(imagesAndCaptions[i], ['ID::', 'USER::', 'CAT::']);
-      urlAuthor[0] = urlAuthor[0].replace('\r\n \r\n  ', '');
       var importData,
         extention = getFileType(urlAuthor[0]);
 
