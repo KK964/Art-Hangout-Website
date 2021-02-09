@@ -1,6 +1,6 @@
 var imgExten = ['png', 'jpg', 'jpeg', 'svg', 'apng', 'avif', 'bmp', 'gif', 'ico'];
 var videoExten = ['mp4', 'ogg', 'mov', 'avi'];
-var splitString = '|~!@#&&';
+var splitStringChars = '|~!@#&&';
 
 function getQueryString() {
   document.getElementById('loadedP').innerText = '0';
@@ -66,7 +66,7 @@ function addQuotes(input) {
 }
 
 function addImgsToGal(returnedValues) {
-  var imagesAndCaptions = returnedValues.split(splitString);
+  var imagesAndCaptions = returnedValues.split(splitStringChars);
   var errorImg = 'https://cdn.iconscout.com/icon/free/png-512/data-not-found-1965034-1662569.png';
 
   for (var i = 0; i < imagesAndCaptions.length; i++) {
