@@ -27,6 +27,8 @@ function getQueryString() {
     categories = [];
   var urlParams = new URLSearchParams(location.search);
   for (var [key, value] of urlParams) {
+    key = DOMPurify.sanitize(key);
+    value = DOMPurify.sanitize(value);
     if (key == 'user' || key == 'name') {
       userID = value;
       console.log('user input ID: ' + userID);
