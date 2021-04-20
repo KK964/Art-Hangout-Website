@@ -106,7 +106,7 @@ function addImgsToGal(returnedValues) {
       if (urlAuthor[4] == 1) winner = 'winner';
       var category = urlAuthor[3];
       var url = urlAuthor[0];
-      var user = '<plaintext>' + DOMPurify.sanitize(urlAuthor[2]) + '</plaintext>';
+      var user = DOMPurify.sanitize(urlAuthor[2]).replace(/(<([^>]+)>)/gi, '');
 
       if (imgExten.includes(extention)) {
         importData = `<img id="zoom" src="${url}" onerror='this.onerror=null;this.src="${errorImg}";'>`;
