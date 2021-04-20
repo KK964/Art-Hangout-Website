@@ -1,21 +1,42 @@
 var imgExten = ['png', 'jpg', 'jpeg', 'svg', 'apng', 'avif', 'bmp', 'gif', 'ico'];
 var videoExten = ['mp4', 'ogg', 'mov', 'avi'];
 var splitStringChars = '|~!@#&&';
+var validCategories = [
+  'general-art',
+  'people-art',
+  'furry-art',
+  'petanimal-art',
+  'supernatural-art',
+  'animations',
+  'music',
+  'gaming-art',
+  'photography-film',
+  'gore-art',
+  'gross-art',
+  'wip-art',
+  'event',
+];
+function toChannelName(data) {
+  return validCategories.includes(data);
+}
 
 function getQueryString() {
   document.getElementById('loadedP').innerText = '0';
   var userID,
     nsfw = 'false',
-    catagories = [];
+    categories = [];
   var urlParams = new URLSearchParams(location.search);
   for (var [key, value] of urlParams) {
     if (key == 'user' || key == 'name') {
       userID = value;
       console.log('user input ID: ' + userID);
     }
-    if (key == 'catagories') {
-      catagories = addQuotes(value.split('|'));
-      console.log('user input Catagories: ' + catagories);
+    if (key == 'categories') {
+      var valid = [];
+      var cat = value.split('|');
+      for (var ci of cat) if (toChannelName(ci)) valid.push(ci);
+      categories = addQuotes(valid);
+      console.log('user input categories: ' + categories);
     }
     if (key == 'nsfw') {
       if (value == 'true') {
@@ -26,13 +47,13 @@ function getQueryString() {
     }
   }
   document.getElementById('user').innerHTML = userID;
-  document.getElementById('catagories').innerHTML = catagories;
+  document.getElementById('categories').innerHTML = categories;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open('POST', 'scripts/php/getDB.php', true);
   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xmlhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200 && this.responseText != '') {
-      //console.log('response: ' + this.responseText); // echo from php
+      console.log('response: ' + this.responseText); // echo from php
       if (this.responseText == '0 results') {
         alert('0 Results');
       } else if (this.responseText == 'error') {
@@ -43,20 +64,20 @@ function getQueryString() {
     }
   };
 
-  //if user and catagories
-  if (userID && catagories.length > 0) {
-    xmlhttp.send('data=' + 'userCatagories|' + userID + '|' + catagories + '|' + nsfw);
+  //if user and categories
+  if (userID && categories.length > 0) {
+    xmlhttp.send('data=' + 'usercategories|' + userID + '|' + categories + '|' + nsfw);
   }
-  //if user, but no catagories
-  if (userID && catagories.length <= 0) {
+  //if user, but no categories
+  if (userID && categories.length <= 0) {
     xmlhttp.send('data=' + 'user|' + userID + '|none|' + nsfw);
   }
-  //if no user but catagories
-  if (!userID && catagories.length > 0) {
-    xmlhttp.send('data=' + 'catagories|' + catagories + '|none|' + nsfw);
+  //if no user but categories
+  if (!userID && categories.length > 0) {
+    xmlhttp.send('data=' + 'categories|' + categories + '|none|' + nsfw);
   }
-  //if no user no catagories
-  if (!userID && catagories.length <= 0) {
+  //if no user no categories
+  if (!userID && categories.length <= 0) {
     xmlhttp.send('data=' + 'none|none' + '|none|' + nsfw);
   }
 }
