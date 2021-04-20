@@ -90,7 +90,7 @@ function addImgsToGal(returnedValues) {
   var imagesAndCaptions = returnedValues.split(splitStringChars);
   var errorImg = 'https://cdn.iconscout.com/icon/free/png-512/data-not-found-1965034-1662569.png';
 
-  while (imagesAndCaptions.length > 50) imagesAndCaptions.split(1);
+  while (imagesAndCaptions.length > 50) imagesAndCaptions.shift(1);
 
   for (var i = 0; i < imagesAndCaptions.length; i++) {
     var regex = /(\r|\n| )/g;
