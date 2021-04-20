@@ -69,6 +69,8 @@ function addImgsToGal(returnedValues) {
   var imagesAndCaptions = returnedValues.split(splitStringChars);
   var errorImg = 'https://cdn.iconscout.com/icon/free/png-512/data-not-found-1965034-1662569.png';
 
+  while (imagesAndCaptions.length > 50) imagesAndCaptions.split(1);
+
   for (var i = 0; i < imagesAndCaptions.length; i++) {
     var regex = /(\r|\n| )/g;
     imagesAndCaptions[0] = imagesAndCaptions[0].replace(regex, '');
@@ -79,20 +81,23 @@ function addImgsToGal(returnedValues) {
       var winner;
       if (urlAuthor[4] == 0) winner = 'nonwinner';
       if (urlAuthor[4] == 1) winner = 'winner';
+      var category = urlAuthor[3];
+      var url = urlAuthor[0];
+      var user = DOMPurify.sanitize(urlAuthor[2]);
 
       if (imgExten.includes(extention)) {
-        importData = `<img id="zoom" src="${urlAuthor[0]}" onerror='this.onerror=null;this.src="${errorImg}";'>`;
+        importData = `<img id="zoom" src="${url}" onerror='this.onerror=null;this.src="${errorImg}";'>`;
         //"<img id='zoom' src='".$img['imgURL']."' onerror='this.onerror=null;this.src=".'"'. $errorImg .'"'.";' '>";
       }
       if (videoExten.includes(extention)) {
-        importData = `<video controls><source src="${urlAuthor[0]}" type="video/${extention}">Your browser does not support the video tag.</video>`;
+        importData = `<video controls><source src="${url}" type="video/${extention}">Your browser does not support the video tag.</video>`;
       }
       //console.log(importData + "\n\n" + extention);
       document
         .getElementById('galleryTest')
         .insertAdjacentHTML(
           'afterend',
-          `<div class="gallery ${winner}"><a target="_blank" href="${urlAuthor[0]}">${importData}</a><div class=desc>Made by ${urlAuthor[2]} | Category = ${urlAuthor[3]}</div></div>`
+          `<div class="gallery ${winner}"><a target="_blank" href="${url}">${importData}</a><div class=desc>Made by ${user} | Category = ${category}</div></div>`
         );
     }
     //urlAuthor[0] = url
